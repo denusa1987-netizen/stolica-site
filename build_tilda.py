@@ -58,6 +58,8 @@ def convert(page):
     i=body.find('<section class="sec dark" id="zayavka">')
     if i<0: i=body.find('<footer>')
     main=body[:i]; rest=body[i:]
+    main=re.sub(r'<form class="form[^>]*>.*?</form>','',main,flags=re.S)
+    main=re.sub(r'<label class="consent[^>]*>.*?</label>','',main,flags=re.S)
     j=rest.find('<footer>')
     footer=rest[j:]
     modal=re.search(r'<div class="modal">.*?</div>',footer,re.S)

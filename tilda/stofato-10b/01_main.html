@@ -80,7 +80,7 @@ footer{background:var(--forest-2);color:var(--cream);padding:88px 0 40px;font-si
 
   // mobile menu
   var burger=document.querySelector('.burger');
-  if(burger){var nav=document.querySelector('.hdr nav');var m=document.createElement('div');m.className='mnav';m.innerHTML=nav?nav.innerHTML:'';document.body.appendChild(m);burger.addEventListener('click',function(){m.classList.toggle('on');hdr.classList.add('solid');});m.addEventListener('click',function(){m.classList.remove('on');});}
+  if(burger){var nav=document.querySelector('.hdr nav');var m=document.createElement('div');m.className='mnav';m.innerHTML=nav?nav.innerHTML:'';(hdr.parentElement||document.body).appendChild(m);burger.addEventListener('click',function(){m.classList.toggle('on');hdr.classList.add('solid');});m.addEventListener('click',function(){m.classList.remove('on');});}
 
   // reveal
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});

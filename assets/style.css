@@ -150,8 +150,9 @@ section{position:relative}
 .grid3 img{width:100%;height:100%;object-fit:cover;aspect-ratio:1/1;transition:transform 1.2s var(--ease)}
 .grid3 figure:first-child img{aspect-ratio:auto;height:100%}
 .grid3 figure:hover img{transform:scale(1.03)}
-.grid3 figcaption{position:absolute;left:18px;bottom:16px;color:var(--cream);font-size:14px;text-shadow:0 1px 10px rgba(0,0,0,.6)}
-.grid3 figure::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(180deg,rgba(23,32,29,0),rgba(23,32,29,.55));pointer-events:none}
+.grid3 figcaption{position:absolute;left:22px;right:22px;bottom:18px;z-index:2;color:var(--cream);font-family:var(--serif);font-size:26px;line-height:1.1;letter-spacing:.01em;text-shadow:0 2px 14px rgba(0,0,0,.55)}
+.grid3 figcaption::before{content:"";display:block;width:34px;height:1px;background:var(--sage);margin-bottom:10px}
+.grid3 figure::after{content:"";position:absolute;inset:auto 0 0 0;height:60%;background:linear-gradient(180deg,rgba(23,32,29,0),rgba(23,32,29,.72));pointer-events:none}
 
 /* list of features */
 .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 40px;margin-top:64px}
@@ -236,6 +237,7 @@ body:not(.show-unc) [data-unconfirmed]{text-decoration:none}
   .grid3{grid-template-columns:1fr 1fr}
   .grid3 figure:first-child{grid-column:span 2;grid-row:auto}
   .grid3 figure:first-child img{aspect-ratio:3/2}
+  .grid3 figcaption{font-size:21px;left:14px;right:14px;bottom:12px}
   .form{grid-template-columns:1fr}
   .form .btn{width:100%}
   footer .cols{grid-template-columns:1fr}

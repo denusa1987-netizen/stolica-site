@@ -4,6 +4,10 @@
   function onScroll(){hdr.classList.toggle('solid',window.scrollY>60);}
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 
+  // mobile menu
+  var burger=document.querySelector('.burger');
+  if(burger){var nav=document.querySelector('.hdr nav');var m=document.createElement('div');m.className='mnav';m.innerHTML=nav?nav.innerHTML:'';document.body.appendChild(m);burger.addEventListener('click',function(){m.classList.toggle('on');hdr.classList.add('solid');});m.addEventListener('click',function(){m.classList.remove('on');});}
+
   // reveal
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});

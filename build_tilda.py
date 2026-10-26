@@ -77,5 +77,5 @@ def convert(page):
 for page in sorted(p for p in os.listdir(HERE) if p.endswith('.html')):
     convert(page)
 open(os.path.join(OUT,'_style_scoped.css'),'w',encoding='utf-8').write(css_s)
-open(os.path.join(OUT,'_head.html'),'w',encoding='utf-8').write('<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;300i&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-<style>'+css_s+'</style>')
+HEADLINK='<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;300i&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">'
+open(os.path.join(OUT,'_head.html'),'w',encoding='utf-8').write(HEADLINK+'<style>'+css_s+'</style>')

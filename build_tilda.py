@@ -66,7 +66,7 @@ def convert(page):
     modal_html=modal.group(0) if modal else ''
     footer=footer.replace(modal_html,'')
     head=('<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;300i&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">'
-          '<link rel="stylesheet" href="'+BASE+'tilda/_style_scoped.css">')
+          '')
     block1=head+'<div class="st">'+main+modal_html+'</div><script>'+js+'</script>'
     block2='<div class="st">'+footer+'</div>'
     d=os.path.join(OUT,page.replace('.html','')); os.makedirs(d,exist_ok=True)
@@ -77,3 +77,5 @@ def convert(page):
 for page in sorted(p for p in os.listdir(HERE) if p.endswith('.html')):
     convert(page)
 open(os.path.join(OUT,'_style_scoped.css'),'w',encoding='utf-8').write(css_s)
+open(os.path.join(OUT,'_head.html'),'w',encoding='utf-8').write('<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;300i&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>'+css_s+'</style>')
